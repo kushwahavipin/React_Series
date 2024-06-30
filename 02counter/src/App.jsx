@@ -1,19 +1,38 @@
-import React from 'react';
+import { useState } from 'react'
+
 
 function App() {
-  let Counter=50
-  const Increment=()=>{
-    Counter=Counter+1
+
+  const [counter, setCounter]  = useState(15)
+
+  //let counter = 15
+
+  const addValue = () => {
+    //counter = counter + 1
+    setCounter(prevCounter => prevCounter + 1)
+   
+    
   }
+
+  const removeValue = () => {
+    setCounter(counter - 1)
+  }
+  
   return (
     <>
       <h1>02 Counter</h1>
-      <h3>Counter value:{Counter}</h3>
-      <button onClick={Increment}>Increment</button>
-      <br/>
-      <button>Decrement</button>
+      <h2>Counter value: {counter}</h2>
+
+      <button
+      onClick={addValue}
+      >Add value {counter}</button> 
+      <br />
+      <button
+      onClick={removeValue}
+      >remove value {counter}</button>
+      <p>footer: {counter}</p>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
